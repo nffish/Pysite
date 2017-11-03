@@ -94,3 +94,8 @@ class QuestionDetailViewTests(TestCase):
         The detail view of a question with a pub_date in the past
         :return:
         """
+        past_question = create_question(question_text='Past Question.', days=-5)
+        url = reverse('polls:detail', args=(past_question.id,))
+        response = self.client.get(url)
+        self.assertContains(response, past_question.question_text)
+
