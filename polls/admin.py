@@ -3,4 +3,14 @@ from django.contrib import admin
 # Register your models here.
 from .models import Question
 
-admin.site.register(Question)
+
+class QuestionAdmin(admin.ModelAdmin):
+    fields = ['pub_date', 'question_text']
+    fieldsets = [
+        (None, {'fields': ['question_text']}),
+        ('日期', {'fields': ['pub_date']}),
+    ]
+
+
+admin.site.register(Question, QuestionAdmin)
+
