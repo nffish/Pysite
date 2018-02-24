@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% for article in articles %}
+    <h1>{{ article.title }}</h1>
+    <p>{{ article.author }}  {{ article.publish }}</p>
+    <h3>{{ article.content }}</h3>
+    <br/>
+{% endfor %}
+</body>
+</html>
